@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, MousePointerClick, Sparkles, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -69,13 +70,17 @@ export default function Hero() {
               variants={fadeIn}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button size="lg" className="group">
-                Explore Our Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button size="lg" className="group" asChild>
+                <Link href="#portfolio">
+                  Explore Our Work
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="group">
-                Book Consultation
-                <Phone className="ml-2 h-4 w-4" />
+              <Button variant="outline" size="lg" className="group" asChild>
+                <Link href="#contact">
+                  Book Consultation
+                  <Phone className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </motion.div>
 

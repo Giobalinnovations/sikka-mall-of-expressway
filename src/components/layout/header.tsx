@@ -19,29 +19,45 @@ import { Button } from '@/components/ui/button';
 import { Menu, Phone } from 'lucide-react';
 import Link from 'next/link';
 
-const navigationItems = [
+const navigationItems: {
+  title: string;
+  href: string;
+  items?: {
+    title: string;
+    href: string;
+    description: string;
+  }[];
+}[] = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'About Us',
+    href: '#about',
+  },
   {
     title: 'Services',
     href: '#services',
-    items: [
-      {
-        title: 'Drawing Room Design',
-        href: '#services',
-        description:
-          'Create stunning living spaces that combine comfort with sophistication.',
-      },
-      {
-        title: 'Kitchen Design',
-        href: '#services',
-        description:
-          'Transform your kitchen into a functional and beautiful space.',
-      },
-      {
-        title: 'Bedroom Design',
-        href: '#services',
-        description: 'Design peaceful and relaxing bedroom sanctuaries.',
-      },
-    ],
+    // items: [
+    //   {
+    //     title: 'Drawing Room Design',
+    //     href: '#services',
+    //     description:
+    //       'Create stunning living spaces that combine comfort with sophistication.',
+    //   },
+    //   {
+    //     title: 'Kitchen Design',
+    //     href: '#services',
+    //     description:
+    //       'Transform your kitchen into a functional and beautiful space.',
+    //   },
+    //   {
+    //     title: 'Bedroom Design',
+    //     href: '#services',
+    //     description: 'Design peaceful and relaxing bedroom sanctuaries.',
+    //   },
+    // ],
   },
   {
     title: 'Portfolio',
@@ -50,10 +66,6 @@ const navigationItems = [
   {
     title: 'Testimonials',
     href: '#testimonials',
-  },
-  {
-    title: 'Blog',
-    href: '#blog',
   },
 ];
 
