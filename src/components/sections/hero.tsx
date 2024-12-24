@@ -1,19 +1,9 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import {
-  ArrowRight,
-  MousePointerClick,
-  Sparkles,
-  Phone,
-  Mail,
-  User,
-} from 'lucide-react';
+import { ArrowRight, MousePointerClick, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import { ContactForm } from '@/components/ui/contact-form';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -30,17 +20,6 @@ const staggerContainer = {
 };
 
 export default function Hero() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Add your form submission logic here
-    setTimeout(() => {
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
       {/* Background with parallax effect */}
@@ -86,65 +65,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              <motion.form
-                onSubmit={handleSubmit}
-                className="space-y-4 bg-background/80 backdrop-blur-sm p-6 rounded-2xl border shadow-lg"
-              >
-                <div className="space-y-2">
-                  <div className="relative">
-                    <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-                    <Input placeholder="Your Name" className="pl-10" required />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-                    <Input
-                      type="email"
-                      placeholder="Email Address"
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-                    <Input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Textarea
-                    placeholder="Tell us about your project..."
-                    className="min-h-[100px] resize-none"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        ease: 'linear',
-                      }}
-                      className="mr-2 h-4 w-4 border-2 border-current border-t-transparent rounded-full"
-                    />
-                  ) : null}
-                  {isSubmitting ? 'Sending...' : 'Get Free Consultation'}
-                  {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
-                </Button>
-              </motion.form>
+              <ContactForm />
 
               {/* Stats Section */}
               <motion.div
