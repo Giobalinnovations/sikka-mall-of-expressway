@@ -1,101 +1,93 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+'use client';
+
+import { Card, CardContent } from '@/components/ui/card';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { Section } from '@/components/ui/section';
+import { motion } from 'framer-motion';
+
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: 'Our Location',
+    details: '123 Design Street, Creative City, ST 12345',
+  },
+  {
+    icon: Phone,
+    title: 'Phone',
+    details: '+1 (555) 123-4567',
+  },
+  {
+    icon: Mail,
+    title: 'Email',
+    details: 'contact@interiordesign.com',
+  },
+];
 
 export default function Contact() {
   return (
     <Section id="contact" variant="default">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="flex flex-col items-center text-center space-y-4 mb-12"
+        >
+          <motion.h2
+            variants={fadeIn}
+            className="text-3xl md:text-4xl font-bold tracking-tighter"
+          >
             Get in Touch
-          </h2>
-          <p className="text-muted-foreground md:text-lg max-w-[800px]">
-            Ready to transform your space? Contact us for a consultation or any
-            inquiries.
-          </p>
-        </div>
+          </motion.h2>
+          <motion.p
+            variants={fadeIn}
+            className="text-muted-foreground md:text-lg max-w-[800px]"
+          >
+            Ready to transform your space? Reach out to us through any of these
+            channels.
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <Card>
-            <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Input placeholder="First Name" />
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+        >
+          {contactInfo.map((info, index) => (
+            <motion.div
+              key={info.title}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { delay: index * 0.2 },
+                },
+              }}
+            >
+              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="p-3 bg-primary/10 rounded-full">
+                      <info.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">{info.title}</h3>
+                      <p className="text-muted-foreground">{info.details}</p>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Input placeholder="Last Name" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Input type="email" placeholder="Email" />
-                </div>
-                <div className="space-y-2">
-                  <Input placeholder="Subject" />
-                </div>
-                <div className="space-y-2">
-                  <Textarea
-                    placeholder="Your Message"
-                    className="min-h-[150px]"
-                  />
-                </div>
-                <Button className="w-full" size="lg">
-                  Send Message
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Our Location</h3>
-                    <p className="text-muted-foreground">
-                      123 Design Street, Creative City, ST 12345
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Mail className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">
-                      contact@interiordesign.com
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </Section>
   );

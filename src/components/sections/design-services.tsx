@@ -8,8 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, PlusCircle } from 'lucide-react';
+
+import { PlusCircle } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -118,11 +118,6 @@ export default function DesignServices() {
               </AccordionItem>
             ))}
           </Accordion>
-
-          <Button size="lg" className="group">
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
         </motion.div>
       </div>
     </Section>

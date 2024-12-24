@@ -1,10 +1,19 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MousePointerClick, Sparkles, Phone } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  ArrowRight,
+  MousePointerClick,
+  Sparkles,
+  Phone,
+  Mail,
+  User,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -21,6 +30,17 @@ const staggerContainer = {
 };
 
 export default function Hero() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Add your form submission logic here
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
       {/* Background with parallax effect */}
@@ -52,55 +72,125 @@ export default function Hero() {
           animate="animate"
           className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
         >
-          {/* Left side - Text content */}
-          <div className="flex-1 text-center lg:text-left space-y-8">
-            <motion.div variants={fadeIn} className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-                Transform Your Space Into
-                <span className="text-primary block mt-2">A Work of Art</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-[600px] mx-auto lg:mx-0">
-                Elevate your living spaces with our expert interior design
-                services. We create stunning, functional spaces that reflect
-                your unique style.
-              </p>
-            </motion.div>
+          {/* Left side - Contact Form and Stats */}
+          <div className="flex-1 w-full">
+            <motion.div variants={fadeIn} className="space-y-8">
+              <div className="space-y-2 text-center lg:text-left">
+                <h1 className="text-3xl md:text-4xl font-bold tracking-tighter">
+                  Transform Your Space Into
+                  <span className="text-primary block mt-2">A Work of Art</span>
+                </h1>
+                <p className="text-muted-foreground">
+                  Get started with a free consultation. Fill out the form below
+                  and our experts will get back to you within 24 hours.
+                </p>
+              </div>
 
-            <motion.div
-              variants={fadeIn}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button size="lg" className="group" asChild>
-                <Link href="#portfolio">
-                  Explore Our Work
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="group" asChild>
-                <Link href="#contact">
-                  Book Consultation
-                  <Phone className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
+              <motion.form
+                onSubmit={handleSubmit}
+                className="space-y-4 bg-background/80 backdrop-blur-sm p-6 rounded-2xl border shadow-lg"
+              >
+                <div className="space-y-2">
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                    <Input placeholder="Your Name" className="pl-10" required />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                    <Input
+                      type="email"
+                      placeholder="Email Address"
+                      className="pl-10"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                    <Input
+                      type="tel"
+                      placeholder="Phone Number"
+                      className="pl-10"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Textarea
+                    placeholder="Tell us about your project..."
+                    className="min-h-[100px] resize-none"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                      className="mr-2 h-4 w-4 border-2 border-current border-t-transparent rounded-full"
+                    />
+                  ) : null}
+                  {isSubmitting ? 'Sending...' : 'Get Free Consultation'}
+                  {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                </Button>
+              </motion.form>
 
-            {/* Stats */}
-            <motion.div
-              variants={fadeIn}
-              className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t"
-            >
-              <div>
-                <h3 className="text-3xl font-bold text-primary">10+</h3>
-                <p className="text-muted-foreground">Years Experience</p>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-primary">250+</h3>
-                <p className="text-muted-foreground">Projects Completed</p>
-              </div>
-              <div className="col-span-2 md:col-span-1">
-                <h3 className="text-3xl font-bold text-primary">100%</h3>
-                <p className="text-muted-foreground">Client Satisfaction</p>
-              </div>
+              {/* Stats Section */}
+              <motion.div
+                variants={fadeIn}
+                className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t"
+              >
+                <div className="text-center p-4 bg-background/50 backdrop-blur-sm rounded-xl border">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-3xl font-bold text-primary"
+                  >
+                    10+
+                  </motion.h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Years Experience
+                  </p>
+                </div>
+                <div className="text-center p-4 bg-background/50 backdrop-blur-sm rounded-xl border">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-3xl font-bold text-primary"
+                  >
+                    250+
+                  </motion.h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Projects Done
+                  </p>
+                </div>
+                <div className="text-center p-4 bg-background/50 backdrop-blur-sm rounded-xl border">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-3xl font-bold text-primary"
+                  >
+                    100%
+                  </motion.h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Satisfaction
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
 

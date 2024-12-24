@@ -3,7 +3,6 @@
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -191,13 +190,6 @@ export default function Portfolio() {
                       <p className="text-sm text-white/80">
                         {item.description}
                       </p>
-                      <Button
-                        size="sm"
-                        variant="link"
-                        className="text-white p-0 h-auto"
-                      >
-                        View Project <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
                     </motion.div>
                   </div>
                 </div>
@@ -205,17 +197,6 @@ export default function Portfolio() {
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {/* View All Button */}
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="rounded-full hover:scale-105 transition-transform duration-300"
-            onClick={() => handleCategoryChange('All')}
-          >
-            View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
       </div>
     </Section>
   );
