@@ -21,7 +21,10 @@ const staggerContainer = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden"
+    >
       {/* Background with parallax effect */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background z-10" />
