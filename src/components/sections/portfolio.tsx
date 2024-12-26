@@ -10,50 +10,119 @@ import { useState } from 'react';
 const portfolioItems = [
   {
     id: 1,
-    title: 'Modern Minimalist Living Room',
+    title: 'Modern Entryway Design',
     category: 'Living Room',
-    description: 'Clean lines and neutral palette create a serene living space',
-    image: '/images/portfolio/living-room-1.webp',
+    description:
+      'Contemporary entryway featuring clean lines and elegant styling',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189455/modern-styled-entryway_qvimku.jpg',
   },
   {
     id: 2,
-    title: 'Contemporary Kitchen Design',
-    category: 'Kitchen',
+    title: 'Retro-Modern Living Space',
+    category: 'Living Room',
     description:
-      'Sleek fixtures and smart storage solutions for modern cooking',
-    image: '/images/portfolio/kitchen3.webp',
+      'European-style living room with retro armchair and modern touches',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189445/3d-rendering-modern-dining-room-living-room-with-retro-armchair-european-style_zf4pvj.jpg',
   },
   {
     id: 3,
-    title: 'Luxurious Master Bedroom',
-    category: 'Bedroom',
-    description: 'Plush textures and ambient lighting for ultimate comfort',
-    image: '/images/portfolio/bedroom.webp',
+    title: 'Luxury Living Room',
+    category: 'Living Room',
+    description:
+      'Modern living space with luxury decor and statement yellow lighting',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189442/3d-rendering-modern-dining-room-living-room-with-luxury-decor-yellow-lamp_vmbjqd.jpg',
   },
   {
     id: 4,
-    title: 'Urban Apartment Makeover',
-    category: 'Full Home',
-    description: 'Complete transformation of a city apartment',
-    image: '/images/portfolio/home-design-1.webp',
+    title: 'Contemporary Living Design',
+    category: 'Living Room',
+    description: 'Sophisticated living room with modern luxury elements',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189439/3d-rendering-modern-dining-room-living-room-with-luxury-decor_ic4qd0.jpg',
   },
   {
     id: 5,
-    title: 'Elegant Dining Room',
-    category: 'Dining Room',
-    description: 'Sophisticated dining space with custom lighting',
-    image: '/images/portfolio/dining1.jpg',
+    title: 'Loft Living Space',
+    category: 'Living Room',
+    description: 'Luxurious loft living room featuring built-in bookshelves',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189415/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf_ukyfkt.jpg',
+  },
+  {
+    id: 6,
+    title: 'Modern Domestic Living',
+    category: 'Living Room',
+    description: 'Elegant home interior with contemporary design elements',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735189415/modern-domestic-room-with-elegant-home-interior-design-generative-ai_kdocgp.jpg',
+  },
+  {
+    id: 7,
+    title: 'Elegant Kitchen Design',
+    category: 'Kitchen',
+    description:
+      'Beautiful modern kitchen with premium finishes and smart layout',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190200/beautiful-kitchen-interior-design_gf9xvf.webp',
+  },
+  {
+    id: 8,
+    title: 'Minimalist Kitchen Space',
+    category: 'Kitchen',
+    description:
+      'Clean and minimalist kitchen design with contemporary aesthetics',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190199/minimalist-kitchen-interior-design_dwa9tp.webp',
+  },
+  {
+    id: 9,
+    title: 'White & Wood Kitchen',
+    category: 'Kitchen',
+    description:
+      'Modern white kitchen featuring warm wood accents and minimal design',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190198/3d-rendering-white-minimal-kitchen-with-wood-decoration_bszklb.webp',
+  },
+  {
+    id: 10,
+    title: 'Luxury Bedroom Suite',
+    category: 'Bedroom',
+    description:
+      'Contemporary bedroom with statement lighting and elegant decor',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190281/3d-rendering-modern-dining-room-living-room-with-luxury-decor-yellow-lamp_rwg1y0.jpg',
+  },
+  {
+    id: 11,
+    title: 'Modern Bedroom Design',
+    category: 'Bedroom',
+    description: 'Sleek and contemporary bedroom with minimalist aesthetics',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190278/3d-modern-bedroom-interior_oydemw.jpg',
+  },
+  {
+    id: 12,
+    title: 'Elegant Mirror Suite',
+    category: 'Bedroom',
+    description: 'Tidy and sophisticated bedroom featuring a statement mirror',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190267/tidy-room-with-big-mirror_orqfht.jpg',
+  },
+  {
+    id: 13,
+    title: 'Luxury Hotel Suite',
+    category: 'Bedroom',
+    description:
+      'Beautiful luxury bedroom suite with premium amenities and entertainment',
+    image:
+      'https://res.cloudinary.com/datdyxl7o/image/upload/q_auto,f_webp/v1735190258/3d-rendering-beautiful-luxury-bedroom-suite-hotel-with-tv_aow1v2.jpg',
   },
 ];
 
-const categories = [
-  'All',
-  'Living Room',
-  'Kitchen',
-  'Bedroom',
-  'Dining Room',
-  'Full Home',
-];
+const categories = ['All', 'Living Room', 'Kitchen', 'Bedroom'];
 
 const containerVariants = {
   hidden: { opacity: 0 },

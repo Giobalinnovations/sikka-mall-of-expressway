@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
             If you have any questions about this Privacy Policy, please contact
             us at:
             <br />
-            Email: privacy@interiorhomedesign.com
+            Email: privacy@homeinteriordesigns.com
             <br />
             Phone: (123) 456-7890
           </p>

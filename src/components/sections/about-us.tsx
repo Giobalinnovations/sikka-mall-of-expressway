@@ -35,15 +35,19 @@ export default function AboutUs() {
           </h2>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus
-              fringilla dui amet faucibus nam. Erat id laoreet posuere etiam
-              morbi.
+              With a strong presence as the leading platform for connecting
+              property buyers and sellers, Home Interior Designs attracts over 2
+              crore monthly visitors and showcases 15 lakh active property
+              listings. Backed by 17 years of expertise, Home Interior Designs
+              has grown into a one-stop destination, offering services such as
+              home loans, interior solutions, and professional guidance.
             </p>
             <p>
-              Tempor dolor elementum tellus non ipsum faucibus. Justo, magna
-              mauris posuere auctor justo. Habitant enim aliquet volutpat leo
-              ultrices. Dui blandit eget vitae turpis ultrices aliquet nunc.
-              Faucibus sit odio bibendum laboris diam.
+              Additionally, Home Interior Designs provides in-depth
+              research-based insights and innovative tools, including HIDTV,
+              India&apos;s premier real estate YouTube channel. These resources
+              empower home buyers with valuable information on price trends,
+              market forecasts, and locality reviews.
             </p>
           </div>
         </motion.div>

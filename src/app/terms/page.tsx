@@ -141,7 +141,7 @@ export default function Terms() {
           <p className="text-muted-foreground">
             If you have any questions about these Terms, please contact us at:
             <br />
-            Email: legal@interiorhomedesign.com
+            Email: legal@homeinteriordesign.com
             <br />
             Phone: (123) 456-7890
           </p>

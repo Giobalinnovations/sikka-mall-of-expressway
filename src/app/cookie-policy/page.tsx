@@ -141,7 +141,7 @@ export default function CookiePolicy() {
             If you have any questions about our use of cookies, please contact
             us at:
             <br />
-            Email: privacy@interiorhomedesign.com
+            Email: privacy@homeinteriordesign.com
             <br />
             Phone: (123) 456-7890
           </p>

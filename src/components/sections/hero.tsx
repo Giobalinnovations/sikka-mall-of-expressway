@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, MousePointerClick, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ContactForm } from '@/components/ui/contact-form';
@@ -143,19 +143,6 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <Sparkles className="text-primary h-5 w-5" />
                   <span className="text-sm font-medium">Premium Design</span>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-                className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-4 rounded-xl shadow-lg"
-              >
-                <div className="flex items-center gap-2">
-                  <MousePointerClick className="text-primary h-5 w-5" />
-                  <span className="text-sm font-medium">
-                    Interactive 3D Tours
-                  </span>
                 </div>
               </motion.div>
             </div>

@@ -5,25 +5,25 @@ import { Section } from '@/components/ui/section';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'Homeowner',
-    avatar: '/avatars/sarah.jpg',
+    name: 'Ramesh Kumar',
+    role: 'Bengaluru',
+    avatar: '/avatars/ramesh.jpg',
     quote:
-      'The team transformed our space beyond our expectations. Their attention to detail and creative solutions made our home truly special.',
+      'Home Interior Designs transformed my dream home into reality. Their expert advice and seamless interior design solutions exceeded my expectations. From selecting the perfect layout to choosing the right furniture, their team guided me every step of the way. Highly recommended!',
   },
   {
-    name: 'Michael Chen',
-    role: 'Property Developer',
-    avatar: '/avatars/michael.jpg',
+    name: 'Priya Sharma',
+    role: 'Mumbai',
+    avatar: '/avatars/priya.jpg',
     quote:
-      'Professional, innovative, and highly skilled. They delivered exceptional results while staying within budget and timeline.',
+      'I was initially overwhelmed by the process of buying a home, but Home Interior Designs made it so easy. Their detailed locality reviews and price trend tools helped me find the perfect property within my budget. Their dedication to customer satisfaction is truly commendable.',
   },
   {
-    name: 'Emma Davis',
-    role: 'Restaurant Owner',
-    avatar: '/avatars/emma.jpg',
+    name: 'Anil Mehta',
+    role: 'Delhi',
+    avatar: '/avatars/anil.jpg',
     quote:
-      'Their design expertise helped create the perfect ambiance for our restaurant. The space has received countless compliments from our customers.',
+      'The team at Home Interior Designs is outstanding! I used their platform for both finding a property and designing my interiors, and the experience was seamless. Their innovative ideas and professional approach gave my home a unique and modern touch. Truly a game-changer in the real estate industry.',
   },
 ];
 
@@ -33,11 +33,11 @@ export default function Testimonials() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-            Client Testimonials
+            What Our Clients Say
           </h2>
           <p className="text-muted-foreground md:text-lg max-w-[800px]">
-            Hear what our clients have to say about their experience working
-            with us.
+            Discover why homeowners across India trust Home Interior Designs for
+            their property and interior design needs.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

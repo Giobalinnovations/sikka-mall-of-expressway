@@ -42,7 +42,7 @@ export default function Footer() {
             variants={itemVariants}
             className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground"
           >
-            <p>© {currentYear} InteriorDesign. All rights reserved.</p>
+            <p>© {currentYear} HomeInteriorDesign. All rights reserved.</p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               <Link
                 href="/privacy-policy"

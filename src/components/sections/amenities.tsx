@@ -3,76 +3,32 @@
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { motion } from 'framer-motion';
-import {
-  Wifi,
-  ParkingCircle,
-  Palette,
-  Lightbulb,
-  Sofa,
-  Shield,
-  Leaf,
-  Home,
-} from 'lucide-react';
+import { Users, LineChart, BadgePercent } from 'lucide-react';
 
-const amenities = [
+const features = [
   {
-    icon: Wifi,
-    title: 'Smart Home Integration',
+    icon: Users,
+    title: 'Handpicked, Experienced & Verified',
     description:
-      'Fully automated systems for lighting, security, and climate control',
+      'Our team consists of carefully selected, experienced professionals who have been thoroughly verified to ensure the highest quality of service.',
     color: 'bg-blue-500/10',
     textColor: 'text-blue-500',
   },
   {
-    icon: Palette,
-    title: 'Custom Color Schemes',
+    icon: LineChart,
+    title: 'Assistance in understanding Quotations',
     description:
-      'Personalized color palettes that match your style and preferences',
+      'We help you understand and compare quotes effectively, ensuring you get the right price for your interior design project.',
     color: 'bg-purple-500/10',
     textColor: 'text-purple-500',
   },
   {
-    icon: Lightbulb,
-    title: 'Premium Lighting',
+    icon: BadgePercent,
+    title: 'MagicInterior Offers & Discounts',
     description:
-      'Strategic lighting design to enhance ambiance and functionality',
-    color: 'bg-amber-500/10',
-    textColor: 'text-amber-500',
-  },
-  {
-    icon: Sofa,
-    title: 'Premium Furnishing',
-    description: 'High-quality, custom-designed furniture for every room',
+      'Exclusive offers and discounts on our interior design services to help you create your dream space within your budget.',
     color: 'bg-rose-500/10',
     textColor: 'text-rose-500',
-  },
-  {
-    icon: Shield,
-    title: 'Security Systems',
-    description: 'Advanced security features for your peace of mind',
-    color: 'bg-emerald-500/10',
-    textColor: 'text-emerald-500',
-  },
-  {
-    icon: ParkingCircle,
-    title: 'Parking Solutions',
-    description: 'Efficient parking design with easy accessibility',
-    color: 'bg-sky-500/10',
-    textColor: 'text-sky-500',
-  },
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly Design',
-    description: 'Sustainable materials and energy-efficient solutions',
-    color: 'bg-green-500/10',
-    textColor: 'text-green-500',
-  },
-  {
-    icon: Home,
-    title: 'Storage Solutions',
-    description: 'Innovative storage designs to maximize space utilization',
-    color: 'bg-orange-500/10',
-    textColor: 'text-orange-500',
   },
 ];
 
@@ -99,13 +55,13 @@ const itemVariants = {
   },
 };
 
-export default function Amenities() {
+export default function WhyChooseUs() {
   return (
-    <Section id="amenities" variant="alternate">
+    <Section id="why-choose-us" variant="alternate">
       <div className="space-y-12">
         <SectionHeading
-          title="Premium Amenities"
-          description="Experience luxury living with our comprehensive range of premium amenities designed for your comfort."
+          title="Why Choose Us?"
+          description="Discover the advantages of working with our expert team for your interior design needs."
           alignment="center"
         />
 
@@ -114,18 +70,18 @@ export default function Amenities() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {amenities.map(amenity => (
+          {features.map(feature => (
             <motion.div
-              key={amenity.title}
+              key={feature.title}
               variants={itemVariants}
               className="group relative"
             >
               <div
                 className={`
                   relative overflow-hidden rounded-2xl p-6 h-full
-                  ${amenity.color} hover:shadow-lg
+                  ${feature.color} hover:shadow-lg
                   transition-all duration-300 ease-in-out
                   hover:-translate-y-1
                 `}
@@ -139,24 +95,24 @@ export default function Amenities() {
                     className={`
                     inline-flex items-center justify-center
                     w-12 h-12 rounded-xl
-                    ${amenity.color} ${amenity.textColor}
+                    ${feature.color} ${feature.textColor}
                     transition-transform duration-300 group-hover:scale-110
                   `}
                   >
-                    <amenity.icon className="w-6 h-6" />
+                    <feature.icon className="w-6 h-6" />
                   </div>
 
                   {/* Content */}
                   <div className="space-y-2">
-                    <h3 className="text-lg font-semibold">{amenity.title}</h3>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
                     <p className="text-muted-foreground">
-                      {amenity.description}
+                      {feature.description}
                     </p>
                   </div>
 
                   {/* Decorative Elements */}
                   <div className="absolute bottom-2 right-2 opacity-10">
-                    <amenity.icon className="w-12 h-12" />
+                    <feature.icon className="w-12 h-12" />
                   </div>
                 </div>
               </div>
