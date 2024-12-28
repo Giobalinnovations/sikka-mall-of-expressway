@@ -23,8 +23,8 @@ async function sendEmail(
   if (
     !process.env.SMTP_HOST ||
     !process.env.SMTP_PORT ||
-    !process.env.HOSTINGER_EMAIL ||
-    !process.env.HOSTINGER_PASSWORD
+    !process.env.SMTP_USER ||
+    !process.env.SMTP_PASS
   ) {
     return {
       success: false,
@@ -34,20 +34,16 @@ async function sendEmail(
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: false,
+    port: parseInt(process.env.SMTP_PORT || '587'),
     auth: {
-      user: process.env.HOSTINGER_EMAIL,
-      pass: process.env.HOSTINGER_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
-    tls: { ciphers: 'TLSv1.2' },
-    requireTLS: true,
-    debug: true,
   });
 
   const mailOptions = {
-    from: process.env.HOSTINGER_EMAIL,
-    to: process.env.HOSTINGER_EMAIL,
+    from: process.env.SMTP_USER,
+    to: process.env.SMTP_USER,
     subject: 'New Contact Form Submission',
     text: `
       New contact form submission:

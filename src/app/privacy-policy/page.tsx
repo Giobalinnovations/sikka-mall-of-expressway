@@ -139,9 +139,9 @@ export default function PrivacyPolicy() {
             If you have any questions about this Privacy Policy, please contact
             us at:
             <br />
-            Email: privacy@homeinteriordesigns.com
+            Email: jasperreed1873@gmail.com
             <br />
-            Phone: (123) 456-7890
+            Phone: +918291435253
           </p>
         </motion.div>
       </motion.div>

@@ -127,9 +127,16 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button variant="default" size="sm" className="hidden md:flex">
-            <Phone className="mr-2 h-4 w-4" />
-            Contact Us
+          <Button
+            variant="default"
+            size="sm"
+            className="hidden md:flex"
+            asChild
+          >
+            <Link href="#hero">
+              <Phone className="mr-2 h-4 w-4" />
+              Contact Us
+            </Link>
           </Button>
         </div>
 

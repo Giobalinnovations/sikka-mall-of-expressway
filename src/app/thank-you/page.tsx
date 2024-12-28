@@ -83,7 +83,7 @@ export default function ThankYou() {
               className="text-primary hover:text-primary/90 ml-2 font-medium"
             >
               <Phone className="w-4 h-4 inline-block mr-1" />
-              (123) 456-7890
+              +918291435253
             </a>
           </p>
         </motion.div>

@@ -141,9 +141,9 @@ export default function CookiePolicy() {
             If you have any questions about our use of cookies, please contact
             us at:
             <br />
-            Email: privacy@homeinteriordesign.com
+            Email: jasperreed1873@gmail.com
             <br />
-            Phone: (123) 456-7890
+            Phone: +918291435253
           </p>
         </motion.div>
       </motion.div>
