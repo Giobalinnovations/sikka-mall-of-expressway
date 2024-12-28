@@ -142,6 +142,7 @@ export default function PrivacyPolicy() {
             Email: jasperreed1873@gmail.com
             <br />
             Phone: +918291435253
+            {/* `s */}
           </p>
         </motion.div>
       </motion.div>
