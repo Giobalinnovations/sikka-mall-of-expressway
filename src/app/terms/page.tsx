@@ -51,8 +51,9 @@ export default function Terms() {
           className="prose dark:prose-invert max-w-none"
         >
           <p>
-            Welcome to Interior Home Design. By accessing our website and using
-            our services, you agree to be bound by these Terms and Conditions.
+            Welcome to IRIS BROADWAY GURUGRAM. By accessing our website and
+            using our services, you agree to be bound by these Terms and
+            Conditions.
           </p>
         </motion.div>
 
@@ -100,7 +101,7 @@ export default function Terms() {
           <h2 className="text-2xl font-semibold">Intellectual Property</h2>
           <p className="text-muted-foreground">
             All content on this website, including images, text, designs, and
-            logos, is the property of Interior Home Design and is protected by
+            logos, is the property of IRIS BROADWAY GURUGRAM and is protected by
             intellectual property laws.
           </p>
         </motion.div>
@@ -109,7 +110,7 @@ export default function Terms() {
         <motion.div variants={itemVariants} className="space-y-4">
           <h2 className="text-2xl font-semibold">Limitation of Liability</h2>
           <p className="text-muted-foreground">
-            Interior Home Design shall not be liable for any indirect,
+            IRIS BROADWAY GURUGRAM shall not be liable for any indirect,
             incidental, special, consequential, or punitive damages resulting
             from your use of our services.
           </p>
@@ -136,7 +137,7 @@ export default function Terms() {
         </motion.div>
 
         {/* Contact Information */}
-        <motion.div variants={itemVariants} className="space-y-4">
+        {/* <motion.div variants={itemVariants} className="space-y-4">
           <h2 className="text-2xl font-semibold">Contact Us</h2>
           <p className="text-muted-foreground">
             If you have any questions about these Terms, please contact us at:
@@ -145,7 +146,7 @@ export default function Terms() {
             <br />
             Phone: +918291435253
           </p>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </Section>
   );

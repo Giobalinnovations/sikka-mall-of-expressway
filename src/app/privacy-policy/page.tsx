@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
           className="prose dark:prose-invert max-w-none"
         >
           <p>
-            At Interior Home Design, we take your privacy seriously. This
+            At IRIS BROADWAY GURUGRAM, we take your privacy seriously. This
             Privacy Policy explains how we collect, use, disclose, and safeguard
             your information when you visit our website or use our services.
           </p>
@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
         </motion.div>
 
         {/* Contact Information */}
-        <motion.div variants={itemVariants} className="space-y-4">
+        {/* <motion.div variants={itemVariants} className="space-y-4">
           <h2 className="text-2xl font-semibold">Contact Us</h2>
           <p className="text-muted-foreground">
             If you have any questions about this Privacy Policy, please contact
@@ -142,9 +142,9 @@ export default function PrivacyPolicy() {
             Email: jasperreed1873@gmail.com
             <br />
             Phone: +918291435253
-            {/* `s */}
+
           </p>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </Section>
   );

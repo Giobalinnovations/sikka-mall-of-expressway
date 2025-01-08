@@ -18,6 +18,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Menu, Phone } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navigationItems: {
   title: string;
@@ -37,35 +38,16 @@ const navigationItems: {
     href: '#about',
   },
   {
-    title: 'Services',
-    href: '#services',
-    // items: [
-    //   {
-    //     title: 'Drawing Room Design',
-    //     href: '#services',
-    //     description:
-    //       'Create stunning living spaces that combine comfort with sophistication.',
-    //   },
-    //   {
-    //     title: 'Kitchen Design',
-    //     href: '#services',
-    //     description:
-    //       'Transform your kitchen into a functional and beautiful space.',
-    //   },
-    //   {
-    //     title: 'Bedroom Design',
-    //     href: '#services',
-    //     description: 'Design peaceful and relaxing bedroom sanctuaries.',
-    //   },
-    // ],
+    title: 'Floor Plans',
+    href: '#floor-plans',
   },
   {
-    title: 'Portfolio',
-    href: '#portfolio',
+    title: 'Key Highlights',
+    href: '#key-highlights',
   },
   {
-    title: 'Testimonials',
-    href: '#testimonials',
+    title: 'Location',
+    href: '#location',
   },
 ];
 
@@ -73,21 +55,27 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl">
-          Home<span className="text-primary">Interior</span>Design
+          <Image
+            src="/Logo.svg"
+            alt="IRIS BROADWAY"
+            width={225}
+            height={225}
+            // className="w-full h-full"
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:items-center md:space-x-4">
-          <NavigationMenu>
+          <NavigationMenu className="text-white">
             <NavigationMenuList>
               {navigationItems.map(item => (
                 <NavigationMenuItem key={item.title}>
                   {item.items ? (
                     <>
-                      <NavigationMenuTrigger>
+                      <NavigationMenuTrigger className="text-white">
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -99,7 +87,7 @@ export default function Header() {
                                   href={subItem.href}
                                   className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                 >
-                                  <div className="text-sm font-medium leading-none">
+                                  <div className="text-sm font-medium leading-none text-foreground">
                                     {subItem.title}
                                   </div>
                                   <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -116,7 +104,7 @@ export default function Header() {
                     <NavigationMenuLink asChild>
                       <a
                         href={item.href}
-                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-white/10 hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-white"
                       >
                         {item.title}
                       </a>
@@ -128,9 +116,9 @@ export default function Header() {
           </NavigationMenu>
 
           <Button
-            variant="default"
+            variant="outline"
             size="sm"
-            className="hidden md:flex"
+            className="hidden md:flex bg-white/10 border-white/20 text-white hover:text-white hover:bg-white/10"
             asChild
           >
             <Link href="#hero">
@@ -143,26 +131,41 @@ export default function Header() {
         {/* Mobile Navigation */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-white/10"
+            >
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <SheetTitle>
-              Interior<span className="text-primary">Home</span>Design
+          <SheetContent
+            side="right"
+            className="w-[300px] sm:w-[400px] bg-black/95 border-border/40"
+          >
+            <SheetTitle className="text-white">
+              <Image
+                src="/Logo.svg"
+                alt="IRIS BROADWAY"
+                width={150}
+                height={150}
+                className="mb-8"
+              />
             </SheetTitle>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-6 mt-8">
               {navigationItems.map(item => (
                 <div key={item.title}>
                   {item.items ? (
                     <div className="space-y-4">
-                      <h4 className="font-medium text-primary">{item.title}</h4>
-                      <div className="pl-4 space-y-2">
+                      <h4 className="font-medium text-white text-lg">
+                        {item.title}
+                      </h4>
+                      <div className="pl-4 space-y-4">
                         {item.items.map(subItem => (
                           <a
                             key={subItem.title}
                             href={subItem.href}
-                            className="block text-sm text-muted-foreground hover:text-primary"
+                            className="block text-base text-white/70 hover:text-white transition-colors"
                             onClick={() => setIsOpen(false)}
                           >
                             {subItem.title}
@@ -173,7 +176,7 @@ export default function Header() {
                   ) : (
                     <a
                       href={item.href}
-                      className="block text-sm hover:text-primary"
+                      className="block text-lg text-white hover:text-white/80 transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.title}
@@ -181,8 +184,12 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <Button className="w-full mt-4">
-                <Phone className="mr-2 h-4 w-4" />
+              <Button
+                className="w-full mt-8 text-white hover:text-white bg-white/10 hover:bg-white/10 border-white/20"
+                variant="outline"
+                size="lg"
+              >
+                <Phone className="mr-2 h-5 w-5" />
                 Contact Us
               </Button>
             </nav>

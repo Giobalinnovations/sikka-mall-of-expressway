@@ -4,9 +4,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Interior Design - Transform Your Space',
-  description:
-    'Professional interior design services for your home and office spaces.',
+  title: 'IRIS BROADWAY GURUGRAM',
+  description: 'IRIS BROADWAY GURUGRAM',
 };
 
 export default function RootLayout({

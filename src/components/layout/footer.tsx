@@ -28,7 +28,7 @@ export default function Footer() {
           className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-full font-medium shadow-lg transition-all active:scale-95"
         >
           <Phone className="w-4 h-4" />
-          Book Consultation with Our Expert
+          Enquire Now
         </Link>
       </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
             variants={itemVariants}
             className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground"
           >
-            <p>© {currentYear} HomeInteriorDesign. All rights reserved.</p>
+            <p>© {currentYear} . All rights reserved.</p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               <Link
                 href="/privacy-policy"

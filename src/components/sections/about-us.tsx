@@ -2,7 +2,7 @@
 
 import { Section } from '@/components/ui/section';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import CloudinaryImage from '../cloudinary-image';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -18,85 +18,66 @@ const imageVariants = {
 
 export default function AboutUs() {
   return (
-    <Section id="about" variant="default" className="overflow-hidden py-20">
-      <div className="grid gap-8 lg:grid-cols-12 items-center">
-        {/* Left side - Content */}
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeIn}
-          className="lg:col-span-5 lg:pr-8"
-        >
-          <span className="text-primary font-medium mb-4 block">ABOUT US</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">
-            We help to bring your{' '}
-            <span className="italic text-primary">dream home</span> to reality
-          </h2>
-          <div className="space-y-4 text-muted-foreground">
-            <p>
-              With a strong presence as the leading platform for connecting
-              property buyers and sellers, Home Interior Designs attracts over 2
-              crore monthly visitors and showcases 15 lakh active property
-              listings. Backed by 17 years of expertise, Home Interior Designs
-              has grown into a one-stop destination, offering services such as
-              home loans, interior solutions, and professional guidance.
-            </p>
-            <p>
-              Additionally, Home Interior Designs provides in-depth
-              research-based insights and innovative tools, including HIDTV,
-              India&apos;s premier real estate YouTube channel. These resources
-              empower home buyers with valuable information on price trends,
-              market forecasts, and locality reviews.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Right side - Image Grid */}
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="lg:col-span-7 grid grid-cols-12 gap-4"
-        >
-          {/* Main Image */}
+    <Section id="about" variant="default" className="overflow-hidden py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid gap-12 lg:grid-cols-2 items-center">
+          {/* Left side - Content */}
           <motion.div
-            variants={imageVariants}
-            className="col-span-12 md:col-span-7 relative aspect-[4/3]"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="max-w-2xl"
           >
-            <Image
-              src="/images/kitchen-1.webp"
-              alt="Modern Kitchen Design"
-              fill
-              className="object-cover rounded-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={95}
-            />
+            <div className="space-y-2 mb-8">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <span className="h-px w-8 bg-primary"></span>
+                <span className="text-sm font-medium uppercase tracking-wider">
+                  01 — Welcome
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Lorem ipsum dolor sit amet
+                <span className="block mt-2"> amet</span>
+              </h2>
+            </div>
+
+            <div className="prose prose-lg text-muted-foreground">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Secondary Image */}
+          {/* Right side - Image */}
           <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
             variants={imageVariants}
-            transition={{ delay: 0.2 }}
-            className="col-span-12 md:col-span-5 relative aspect-[3/4] md:mt-8"
+            className="relative aspect-[4/3] lg:aspect-[16/10]"
           >
-            <Image
-              src="/images/bedroom.webp"
-              alt="Bedroom Interior"
-              fill
-              className="object-cover rounded-2xl"
-              sizes="(max-width: 768px) 100vw, 30vw"
-              quality={95}
-            />
+            <div className="relative w-full h-full rounded-2xl overflow-hidden">
+              <CloudinaryImage
+                src="TREHANIRISBROADWA_dxdc4w"
+                alt="Iris Broadway Shopping Centre Aerial View"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
           </motion.div>
-
-          {/* Logo or Brand Element */}
-          <motion.div
-            variants={imageVariants}
-            transition={{ delay: 0.4 }}
-            className="absolute -top-12 right-8 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full shadow-lg flex items-center justify-center p-4"
-          ></motion.div>
-        </motion.div>
+        </div>
       </div>
     </Section>
   );

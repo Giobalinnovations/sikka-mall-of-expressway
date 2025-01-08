@@ -159,7 +159,7 @@ export function ContactForm() {
               Sending...
             </>
           ) : (
-            'Get Free Consultation'
+            'Enquire Now'
           )}
         </Button>
       </motion.form>

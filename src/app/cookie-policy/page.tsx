@@ -51,7 +51,7 @@ export default function CookiePolicy() {
           className="prose dark:prose-invert max-w-none"
         >
           <p>
-            This Cookie Policy explains how Interior Home Design uses cookies
+            This Cookie Policy explains how IRIS BROADWAY GURUGRAM uses cookies
             and similar technologies to recognize you when you visit our
             website.
           </p>
@@ -135,7 +135,7 @@ export default function CookiePolicy() {
         </motion.div>
 
         {/* Contact Information */}
-        <motion.div variants={itemVariants} className="space-y-4">
+        {/* <motion.div variants={itemVariants} className="space-y-4">
           <h2 className="text-2xl font-semibold">Contact Us</h2>
           <p className="text-muted-foreground">
             If you have any questions about our use of cookies, please contact
@@ -145,7 +145,7 @@ export default function CookiePolicy() {
             <br />
             Phone: +918291435253
           </p>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </Section>
   );

@@ -1,14 +1,23 @@
 import Hero from '@/components/sections/hero';
-import Services from '@/components/sections/services';
-import Portfolio from '@/components/sections/portfolio';
-import Testimonials from '@/components/sections/testimonials';
-// import Contact from '@/components/sections/contact';
 import ScrollToTop from '@/components/scroll-to-top';
-// import DesignSs
-import ThreeSteps from '@/components/sections/three-steps';
+
 import AboutUs from '@/components/sections/about-us';
-import Amenities from '@/components/sections/amenities';
-// import FAQ from '@/components/sections/faq';
+
+import EpicentreSection from '@/components/sections/EpicentreSection';
+import Location from '@/components/sections/location';
+import dynamic from 'next/dynamic';
+
+// Dynamically import FloorPlansGallery component
+const FloorPlansGallery = dynamic(
+  () => import('@/components/sections/floor-plans-gallery'),
+  {
+    loading: () => (
+      <div className="h-[600px] flex items-center justify-center">
+        Loading...
+      </div>
+    ),
+  }
+);
 
 export default function Home() {
   return (
@@ -16,14 +25,9 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero />
         <AboutUs />
-        <Services />
-        <ThreeSteps />
-        {/* <DesignServices /> */}
-        <Portfolio />
-        <Amenities />
-        <Testimonials />
-        {/* <FAQ /> */}
-        {/* <Contact /> */}
+        <FloorPlansGallery />
+        <EpicentreSection />
+        <Location />
         <ScrollToTop />
       </main>
     </>
