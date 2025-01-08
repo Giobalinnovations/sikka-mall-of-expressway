@@ -53,7 +53,7 @@ const EpicentreSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#8CC63F]/10 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 flex items-center space-x-4 border border-[#8CC63F]/20"
+                className="shadow-md p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 flex items-center space-x-4 border border-[#8CC63F]/20"
               >
                 <div className="text-[#8CC63F] bg-white p-3 rounded-lg shadow-sm">
                   {highlight.icon}

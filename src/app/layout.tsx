@@ -4,8 +4,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Signature Global',
-  description: 'Signature Global',
+  title: 'M3M Antalya Hills',
+  description: 'M3M Antalya Hills',
 };
 
 export default function RootLayout({

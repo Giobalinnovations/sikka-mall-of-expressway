@@ -10,25 +10,19 @@ import CloudinaryImage from '../cloudinary-image';
 const floorPlans = [
   {
     id: 1,
-    title: 'Basement Floor Plan',
-    category: 'Basement',
-    image: 'basemeny_t8fht3',
+    title: '3.5BHK Floor Plan',
+    category: '3.5BHK',
+    image: '3-5bhk_mabotc',
   },
   {
     id: 2,
-    title: 'Stilt Floor Plan',
-    category: 'Stilt',
-    image: 'stilt_vpyuuw',
-  },
-  {
-    id: 3,
-    title: 'Typical Floor Plan',
-    category: 'Typical',
-    image: 'flooooor_h7cxp6',
+    title: '2.5BHK Floor Plan',
+    category: '2.5BHK',
+    image: '2-5bhk_ehef71',
   },
 ];
 
-const categories = ['Basement', 'Stilt', 'Typical'];
+const categories = ['3.5BHK', '2.5BHK'];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -66,7 +60,7 @@ const itemVariants = {
 };
 
 export default function FloorPlansGallery() {
-  const [activeCategory, setActiveCategory] = useState('Basement');
+  const [activeCategory, setActiveCategory] = useState('3.5BHK');
 
   const filteredItems = floorPlans.filter(
     item => item.category === activeCategory
@@ -77,8 +71,8 @@ export default function FloorPlansGallery() {
   };
 
   return (
-    <Section id="floor-plans" variant="default">
-      <div className="space-y-10">
+    <Section id="floor-plans" className="pb-6" variant="default">
+      <div className="space-y-6">
         <SectionHeading
           title="Floor Plans"
           description="Explore our thoughtfully designed retail spaces across different blocks and floors."
@@ -90,7 +84,7 @@ export default function FloorPlansGallery() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2"
+          className="flex flex-wrap justify-center gap-2 mb-4"
         >
           {categories.map(category => (
             <Button
@@ -114,7 +108,7 @@ export default function FloorPlansGallery() {
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 gap-6 max-w-5xl mx-auto"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map(item => (
@@ -125,24 +119,18 @@ export default function FloorPlansGallery() {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden"
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg"
               >
                 {/* Image Container */}
-                <div className="aspect-[16/10] relative">
+                <div className="aspect-[16/9] relative h-[250px] md:h-[400px] flex items-center justify-center">
                   <CloudinaryImage
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-contain p-4 md:p-8"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw"
+                    priority
                   />
-                </div>
-
-                {/* Title */}
-                <div className="p-4 text-center border-t bg-muted/30">
-                  <h3 className="text-base font-medium text-foreground">
-                    {item.title}
-                  </h3>
                 </div>
               </motion.div>
             ))}

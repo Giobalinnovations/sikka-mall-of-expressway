@@ -36,24 +36,30 @@ export default function AboutUs() {
                   01 — Welcome
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              {/* <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                 Lorem ipsum dolor sit amet
                 <span className="block mt-2"> amet</span>
-              </h2>
+              </h2> */}
             </div>
 
-            <div className="prose prose-lg text-muted-foreground">
+            <div className="prose prose-lg text-muted-foreground space-y-3">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Antalya HillsDiscover at M3 Manatlya Hill the ideal fusion of
+                peace and grandeur found in nature. For those looking for a
+                peaceful way of life, our community is perfect as its serene
+                environment offers breathtaking views and a calm atmosphere. Our
+                cleverly designed floor layouts include spacious one-, two- and
+                three-bedroom apartments with modern conveniences. Savish a
+                fully equipped kitchen, elegant living spaces, and private
+                terraces allowing plenty of natural light and air.
               </p>
               <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
+                Among the great amenities M3 Manatlya Hill offers to residents
+                are a modern fitness facility, a cool pool, and well maintained
+                gardens. Our perfect location allows you to easily access nearby
+                shopping areas, schools, and leisure activities. M3 Manatlya
+                Hill is the pinnacle of leisure and elegance; come find your
+                ideal retreat here!
               </p>
             </div>
           </motion.div>
@@ -68,7 +74,7 @@ export default function AboutUs() {
           >
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <CloudinaryImage
-                src="signaturedaxinvist_gz0zph"
+                src="ANTALYAHILSGURGAO_srtxbc"
                 alt="Iris Broadway Shopping Centre Aerial View"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

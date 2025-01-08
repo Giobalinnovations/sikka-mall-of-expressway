@@ -1,200 +1,333 @@
 'use client';
 
-import { Section } from '@/components/ui/section';
-import { SectionHeading } from '@/components/ui/section-heading';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Card } from '@/components/ui/card';
 import {
-  Waves,
   Dumbbell,
-  Heart,
-  Video,
-  Briefcase,
-  Users2,
-  BookOpen,
+  Coffee,
+  Users,
+  Baby,
+  Utensils,
+  Palmtree,
+  Table2,
+  Sword,
+  Trophy,
+  Medal,
+  Gamepad,
   Flower2,
-  Shirt,
-  Stethoscope,
-  Puzzle,
+  Users2,
+  UtensilsCrossed,
+  Wine,
+  GalleryVerticalEnd,
+  BookOpen,
+  Building,
+  Scissors,
+  Cigarette,
 } from 'lucide-react';
 
-const amenities = [
+// Define types for amenities
+type Amenity = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+};
+
+// Amenities data for Ebony
+const ebonyAmenities: Amenity[] = [
   {
-    icon: Waves,
-    title: 'Swimming Pool',
-    description:
-      'Luxurious infinity pool with temperature control and stunning views',
-    color: 'bg-blue-500/10',
-    textColor: 'text-blue-500',
+    icon: <Medal className="w-6 h-6 text-primary" />,
+    title: 'Squash Court',
+    description: 'Professional grade squash court for sports enthusiasts',
   },
   {
-    icon: Dumbbell,
+    icon: <Medal className="w-6 h-6 text-primary" />,
+    title: 'Badminton Court',
+    description: 'Indoor badminton court with professional flooring',
+  },
+  {
+    icon: <Table2 className="w-6 h-6 text-primary" />,
+    title: 'Table Tennis Lounge',
+    description: 'Dedicated space for table tennis with premium equipment',
+  },
+  {
+    icon: <Sword className="w-6 h-6 text-primary" />,
+    title: 'MMA Ring & Kick Boxing',
+    description: 'Professional boxing ring and training facilities',
+  },
+  {
+    icon: <Trophy className="w-6 h-6 text-primary" />,
+    title: 'Sports Lounge',
+    description: 'Multi-purpose sports lounge for various activities',
+  },
+  {
+    icon: <Coffee className="w-6 h-6 text-primary" />,
+    title: 'Café Lounge',
+    description: 'Relaxing café space for refreshments and socializing',
+  },
+  {
+    icon: <Baby className="w-6 h-6 text-primary" />,
+    title: 'Kids Play Area',
+    description: 'Safe and engaging play area for children',
+  },
+  {
+    icon: <Users className="w-6 h-6 text-primary" />,
+    title: 'Multipurpose Hall',
+    description: 'Versatile space for various events and activities',
+  },
+  {
+    icon: <Dumbbell className="w-6 h-6 text-primary" />,
     title: 'Gymnasium',
-    description:
-      'State-of-the-art fitness center with modern equipment and personal trainers',
-    color: 'bg-purple-500/10',
-    textColor: 'text-purple-500',
+    description: 'State-of-the-art fitness center with modern equipment',
   },
   {
-    icon: Heart,
-    title: 'Spa & Salon',
-    description:
-      'Premium wellness center offering rejuvenating treatments and services',
-    color: 'bg-amber-500/10',
-    textColor: 'text-amber-500',
-  },
-  {
-    icon: Video,
-    title: 'Mini Theatre',
-    description:
-      'Private cinema experience with premium seating and sound system',
-    color: 'bg-rose-500/10',
-    textColor: 'text-rose-500',
-  },
-  {
-    icon: Briefcase,
-    title: 'Co-working Space',
-    description:
-      'Professional workspace with high-speed internet and modern amenities',
-    color: 'bg-indigo-500/10',
-    textColor: 'text-indigo-500',
-  },
-  {
-    icon: Users2,
-    title: 'Conference Room',
-    description:
-      'Well-equipped meeting spaces for professional gatherings and presentations',
-    color: 'bg-cyan-500/10',
-    textColor: 'text-cyan-500',
-  },
-  {
-    icon: BookOpen,
-    title: 'E-library',
-    description:
-      'Digital library with extensive collection of books and reading spaces',
-    color: 'bg-yellow-500/10',
-    textColor: 'text-yellow-500',
-  },
-  {
-    icon: Flower2,
+    icon: <Palmtree className="w-6 h-6 text-primary" />,
     title: 'Yoga Deck',
-    description: 'Serene space for yoga and meditation with panoramic views',
-    color: 'bg-teal-500/10',
-    textColor: 'text-teal-500',
+    description: 'Peaceful space for yoga and meditation',
   },
   {
-    icon: Shirt,
-    title: 'Laundromat',
-    description:
-      'Modern laundry facility with smart washing and drying machines',
-    color: 'bg-pink-500/10',
-    textColor: 'text-pink-500',
-  },
-  {
-    icon: Stethoscope,
-    title: "Doctor's Room",
-    description:
-      'On-site medical facility for basic healthcare and emergencies',
-    color: 'bg-red-500/10',
-    textColor: 'text-red-500',
-  },
-  {
-    icon: Puzzle,
-    title: 'Kids Indoor Play Area',
-    description:
-      'Safe and engaging play space with educational toys and activities',
-    color: 'bg-lime-500/10',
-    textColor: 'text-lime-500',
+    icon: <Utensils className="w-6 h-6 text-primary" />,
+    title: 'Restaurant',
+    description: 'Fine dining restaurant with diverse cuisine options',
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
+// Add Pine amenities data
+const palmAmenities: Amenity[] = [
+  {
+    icon: <Baby className="w-6 h-6 text-primary" />,
+    title: 'Kids Play Area',
+    description: `Safe and engaging space designed for children's activities`,
   },
-};
+  {
+    icon: <Coffee className="w-6 h-6 text-primary" />,
+    title: 'Café & Patisserie',
+    description: 'Gourmet café serving fresh pastries and beverages',
+  },
+  {
+    icon: <UtensilsCrossed className="w-6 h-6 text-primary" />,
+    title: 'Banquet Hall',
+    description: 'Elegant space for hosting events and gatherings',
+  },
+  {
+    icon: <Users className="w-6 h-6 text-primary" />,
+    title: 'Multipurpose Hall',
+    description: 'Versatile space for various community activities',
+  },
+  {
+    icon: <Gamepad className="w-6 h-6 text-primary" />,
+    title: 'Arcade & Gaming Zone',
+    description: 'Modern gaming facility with latest entertainment options',
+  },
+  {
+    icon: <Dumbbell className="w-6 h-6 text-primary" />,
+    title: 'Gymnasium',
+    description: 'Fully equipped fitness center with modern apparatus',
+  },
+  {
+    icon: <Palmtree className="w-6 h-6 text-primary" />,
+    title: 'Yoga Deck',
+    description: 'Tranquil space for yoga and meditation practices',
+  },
+  {
+    icon: <Users2 className="w-6 h-6 text-primary" />,
+    title: 'Elderly Zone',
+    description: 'Dedicated area for senior citizens to relax and socialize',
+  },
+  {
+    icon: <Flower2 className="w-6 h-6 text-primary" />,
+    title: 'Butterfly Garden',
+    description: 'Beautiful garden designed to attract butterflies and nature',
+  },
+];
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
+// Add Pine amenities data
+const pineAmenities: Amenity[] = [
+  {
+    icon: <Coffee className="w-6 h-6 text-primary" />,
+    title: 'Cafeteria',
+    description: 'Modern café serving fresh refreshments and snacks',
   },
-};
+  {
+    icon: <Dumbbell className="w-6 h-6 text-primary" />,
+    title: 'Fitness Zone',
+    description: 'State-of-the-art fitness center with modern equipment',
+  },
+  {
+    icon: <Building className="w-6 h-6 text-primary" />,
+    title: 'Indoor Pool',
+    description: 'Temperature-controlled indoor swimming pool',
+  },
+  {
+    icon: <Utensils className="w-6 h-6 text-primary" />,
+    title: 'Restaurant',
+    description: 'Fine dining establishment with diverse cuisine',
+  },
+  {
+    icon: <Baby className="w-6 h-6 text-primary" />,
+    title: 'Kids Play Area',
+    description: 'Safe and engaging space for children',
+  },
+  {
+    icon: <Scissors className="w-6 h-6 text-primary" />,
+    title: 'Spa & Salon',
+    description: 'Luxury spa and beauty salon services',
+  },
+  {
+    icon: <Wine className="w-6 h-6 text-primary" />,
+    title: 'Bar Lounge',
+    description: 'Sophisticated lounge for drinks and socializing',
+  },
+  {
+    icon: <GalleryVerticalEnd className="w-6 h-6 text-primary" />,
+    title: 'Card Room',
+    description: 'Dedicated space for card games and entertainment',
+  },
+  {
+    icon: <Cigarette className="w-6 h-6 text-primary" />,
+    title: 'Cigar Lounge',
+    description: 'Exclusive lounge for cigar enthusiasts',
+  },
+  {
+    icon: <BookOpen className="w-6 h-6 text-primary" />,
+    title: 'Library',
+    description: 'Quiet reading space with diverse collection',
+  },
+  {
+    icon: <Gamepad className="w-6 h-6 text-primary" />,
+    title: 'Arcade Zone',
+    description: 'Modern gaming and entertainment area',
+  },
+  {
+    icon: <Users className="w-6 h-6 text-primary" />,
+    title: 'Multipurpose Hall',
+    description: 'Versatile space for various events',
+  },
+  {
+    icon: <Palmtree className="w-6 h-6 text-primary" />,
+    title: 'Yoga Deck',
+    description: 'Peaceful space for yoga and meditation',
+  },
+];
+
+type TabType = 'ebony' | 'palm' | 'pine';
 
 export default function Amenities() {
+  const [activeTab, setActiveTab] = useState<TabType>('ebony');
+
   return (
-    <Section id="amenities" variant="alternate">
-      <div className="space-y-12">
-        <SectionHeading
-          title="Premium Amenities"
-          description="Experience luxury living with our comprehensive range of premium amenities designed for your comfort."
-          alignment="center"
-        />
+    <section id="amenities" className="py-16 bg-white">
+      <div className="container">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">World-Class Amenities</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Experience luxury living with our carefully curated selection of
+            premium amenities
+          </p>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {amenities.map(amenity => (
-            <motion.div
-              key={amenity.title}
-              variants={itemVariants}
-              className="group relative"
+        {/* Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-lg border p-1 bg-gray-50">
+            <button
+              onClick={() => setActiveTab('ebony')}
+              className={`px-6 py-3 rounded-md text-sm font-medium transition-colors ${
+                activeTab === 'ebony'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
             >
-              <div
-                className={`
-                  relative overflow-hidden rounded-2xl p-6 h-full
-                  ${amenity.color} hover:shadow-lg
-                  transition-all duration-300 ease-in-out
-                  hover:-translate-y-1
-                `}
+              Ebony
+            </button>
+            <button
+              onClick={() => setActiveTab('palm')}
+              className={`px-6 py-3 rounded-md text-sm font-medium transition-colors ${
+                activeTab === 'palm'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Palm
+            </button>
+            <button
+              onClick={() => setActiveTab('pine')}
+              className={`px-6 py-3 rounded-md text-sm font-medium transition-colors ${
+                activeTab === 'pine'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Pine
+            </button>
+          </div>
+        </div>
+
+        {/* Amenities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {activeTab === 'ebony' &&
+            ebonyAmenities.map((amenity, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-primary/10"
               >
-                {/* Background Pattern */}
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 rounded-full bg-white/5 blur-2xl transform rotate-45 group-hover:scale-150 transition-transform duration-500" />
-
-                <div className="relative space-y-4">
-                  {/* Icon */}
-                  <div
-                    className={`
-                    inline-flex items-center justify-center
-                    w-12 h-12 rounded-xl
-                    ${amenity.color} ${amenity.textColor}
-                    transition-transform duration-300 group-hover:scale-110
-                  `}
-                  >
-                    <amenity.icon className="w-6 h-6" />
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-full">
+                    {amenity.icon}
                   </div>
-
-                  {/* Content */}
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-semibold">{amenity.title}</h3>
-                    <p className="text-muted-foreground">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {amenity.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
                       {amenity.description}
                     </p>
                   </div>
-
-                  {/* Decorative Elements */}
-                  <div className="absolute bottom-2 right-2 opacity-10">
-                    <amenity.icon className="w-12 h-12" />
+                </div>
+              </Card>
+            ))}
+          {activeTab === 'palm' &&
+            palmAmenities.map((amenity, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-primary/10"
+              >
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-full">
+                    {amenity.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {amenity.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {amenity.description}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </Card>
+            ))}
+          {activeTab === 'pine' &&
+            pineAmenities.map((amenity, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-primary/10"
+              >
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-full">
+                    {amenity.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {amenity.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {amenity.description}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
