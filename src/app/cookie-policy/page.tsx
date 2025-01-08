@@ -51,9 +51,8 @@ export default function CookiePolicy() {
           className="prose dark:prose-invert max-w-none"
         >
           <p>
-            This Cookie Policy explains how IRIS BROADWAY GURUGRAM uses cookies
-            and similar technologies to recognize you when you visit our
-            website.
+            This Cookie Policy explains how Signature Global uses cookies and
+            similar technologies to recognize you when you visit our website.
           </p>
         </motion.div>
 

@@ -45,10 +45,6 @@ const navigationItems: {
     title: 'Key Highlights',
     href: '#key-highlights',
   },
-  {
-    title: 'Location',
-    href: '#location',
-  },
 ];
 
 export default function Header() {
@@ -59,10 +55,10 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl">
           <Image
-            src="/Logo.svg"
+            src="/sg-logo.webp"
             alt="IRIS BROADWAY"
-            width={225}
-            height={225}
+            width={140}
+            height={140}
             // className="w-full h-full"
           />
         </Link>

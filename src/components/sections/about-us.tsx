@@ -68,7 +68,7 @@ export default function AboutUs() {
           >
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <CloudinaryImage
-                src="TREHANIRISBROADWA_dxdc4w"
+                src="signaturedaxinvist_gz0zph"
                 alt="Iris Broadway Shopping Centre Aerial View"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

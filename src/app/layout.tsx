@@ -4,8 +4,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'IRIS BROADWAY GURUGRAM',
-  description: 'IRIS BROADWAY GURUGRAM',
+  title: 'Signature Global',
+  description: 'Signature Global',
 };
 
 export default function RootLayout({

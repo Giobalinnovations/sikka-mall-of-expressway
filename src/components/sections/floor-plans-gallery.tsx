@@ -10,73 +10,25 @@ import CloudinaryImage from '../cloudinary-image';
 const floorPlans = [
   {
     id: 1,
-    title: 'BLOCK A | First Floor',
-    category: 'Block A',
-    image: 'ba-ff_o1er9v',
+    title: 'Basement Floor Plan',
+    category: 'Basement',
+    image: 'basemeny_t8fht3',
   },
   {
     id: 2,
-    title: 'BLOCK A | Lower Ground Floor',
-    category: 'Block A',
-    image: 'ba-lgf_rmbngl',
+    title: 'Stilt Floor Plan',
+    category: 'Stilt',
+    image: 'stilt_vpyuuw',
   },
   {
     id: 3,
-    title: 'BLOCK A | Upper Ground Floor',
-    category: 'Block A',
-    image: 'ba-ugf_m4qf6l',
-  },
-  {
-    id: 4,
-    title: 'BLOCK B | Second Floor',
-    category: 'Block B',
-    image: 'bb-sf_izijci',
-  },
-  {
-    id: 5,
-    title: 'BLOCK B | Third Floor',
-    category: 'Block B',
-    image: 'bb-tf_dkizfy',
-  },
-  {
-    id: 6,
-    title: 'BLOCK B | First Floor',
-    category: 'Block B',
-    image: 'bb-ff_fx0rby',
-  },
-  {
-    id: 7,
-    title: 'BLOCK B | Lower Ground Floor',
-    category: 'Block B',
-    image: 'bb-lgf_apte4q',
-  },
-  {
-    id: 8,
-    title: 'BLOCK B | Upper Ground Floor',
-    category: 'Block B',
-    image: 'bb-ugf_x6gfp9',
-  },
-  {
-    id: 9,
-    title: 'BLOCK C | Lower Ground Floor',
-    category: 'Block C',
-    image: 'bc-lgf_olg1gw',
-  },
-  {
-    id: 10,
-    title: 'BLOCK C | Upper Ground Floor',
-    category: 'Block C',
-    image: 'bc-ugf_bbxm21',
-  },
-  {
-    id: 11,
-    title: 'BLOCK C | First Floor',
-    category: 'Block C',
-    image: 'bc-ff_oxqmk0',
+    title: 'Typical Floor Plan',
+    category: 'Typical',
+    image: 'flooooor_h7cxp6',
   },
 ];
 
-const categories = ['Block A', 'Block B', 'Block C'];
+const categories = ['Basement', 'Stilt', 'Typical'];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -114,7 +66,7 @@ const itemVariants = {
 };
 
 export default function FloorPlansGallery() {
-  const [activeCategory, setActiveCategory] = useState('Block A');
+  const [activeCategory, setActiveCategory] = useState('Basement');
 
   const filteredItems = floorPlans.filter(
     item => item.category === activeCategory
