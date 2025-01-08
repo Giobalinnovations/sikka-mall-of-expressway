@@ -3,10 +3,8 @@ import ScrollToTop from '@/components/scroll-to-top';
 
 import AboutUs from '@/components/sections/about-us';
 
-import EpicentreSection from '@/components/sections/EpicentreSection';
-
 import dynamic from 'next/dynamic';
-import Amenities from '@/components/sections/amenities';
+import Location from '@/components/sections/location';
 
 // Dynamically import FloorPlansGallery component
 const FloorPlansGallery = dynamic(
@@ -27,9 +25,9 @@ export default function Home() {
         {/*  */}
         <Hero />
         <AboutUs />
-        <Amenities />
         <FloorPlansGallery />
-        <EpicentreSection />
+
+        <Location />
         <ScrollToTop />
       </main>
     </>

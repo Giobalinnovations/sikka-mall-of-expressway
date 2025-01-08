@@ -4,8 +4,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'M3M Antalya Hills',
-  description: 'M3M Antalya Hills',
+  title: 'Sikka Mall of Expressway',
+  description: 'Sikka Mall of Expressway',
 };
 
 export default function RootLayout({

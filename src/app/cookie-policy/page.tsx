@@ -51,8 +51,9 @@ export default function CookiePolicy() {
           className="prose dark:prose-invert max-w-none"
         >
           <p>
-            This Cookie Policy explains how M3M Antalya Hills uses cookies and
-            similar technologies to recognize you when you visit our website.
+            This Cookie Policy explains how Sikka Mall of Expressway uses
+            cookies and similar technologies to recognize you when you visit our
+            website.
           </p>
         </motion.div>
 

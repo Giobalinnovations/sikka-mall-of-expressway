@@ -10,19 +10,29 @@ import CloudinaryImage from '../cloudinary-image';
 const floorPlans = [
   {
     id: 1,
-    title: '3.5BHK Floor Plan',
-    category: '3.5BHK',
-    image: '3-5bhk_mabotc',
+    title: 'Ground Floor Plan',
+    category: 'Ground Floor',
+    image: 'g-plan_p0wt0j',
   },
   {
     id: 2,
-    title: '2.5BHK Floor Plan',
-    category: '2.5BHK',
-    image: '2-5bhk_ehef71',
+    title: 'First and Second Floor Plan',
+    category: 'First & Second Floor',
+    image: 'f-a-s_ta72r0',
+  },
+  {
+    id: 3,
+    title: 'Third and Fourth Floor Plan',
+    category: 'Third & Fourth Floor',
+    image: 't-a-f_m5fqbm',
   },
 ];
 
-const categories = ['3.5BHK', '2.5BHK'];
+const categories = [
+  'Ground Floor',
+  'First & Second Floor',
+  'Third & Fourth Floor',
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -60,7 +70,7 @@ const itemVariants = {
 };
 
 export default function FloorPlansGallery() {
-  const [activeCategory, setActiveCategory] = useState('3.5BHK');
+  const [activeCategory, setActiveCategory] = useState('Ground Floor');
 
   const filteredItems = floorPlans.filter(
     item => item.category === activeCategory
@@ -75,7 +85,7 @@ export default function FloorPlansGallery() {
       <div className="space-y-6">
         <SectionHeading
           title="Floor Plans"
-          description="Explore our thoughtfully designed retail spaces across different blocks and floors."
+          description="Explore our thoughtfully designed commercial spaces across different floors."
           alignment="center"
         />
 
@@ -119,7 +129,7 @@ export default function FloorPlansGallery() {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg"
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden"
               >
                 {/* Image Container */}
                 <div className="aspect-[16/9] relative h-[250px] md:h-[400px] flex items-center justify-center">
@@ -127,7 +137,7 @@ export default function FloorPlansGallery() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-contain p-4 md:p-8"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw"
                     priority
                   />

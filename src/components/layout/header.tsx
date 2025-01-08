@@ -41,13 +41,10 @@ const navigationItems: {
     title: 'Floor Plans',
     href: '#floor-plans',
   },
+
   {
-    title: 'Amenities',
-    href: '#amenities',
-  },
-  {
-    title: 'Key Highlights',
-    href: '#key-highlights',
+    title: 'Location',
+    href: '#location',
   },
 ];
 
@@ -58,12 +55,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl">
-          <Image
+          {/* <Image
             src="/m3m-logo.png"
             alt="IRIS BROADWAY"
             width={110}
             height={110}
-          />
+          /> */}
+          Sikka Mall of Expressway
         </Link>
 
         {/* Desktop Navigation */}
