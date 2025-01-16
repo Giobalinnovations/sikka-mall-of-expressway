@@ -10,8 +10,8 @@ const formSchema = z.object({
   phone: z.string().regex(/^\d{10}$/, {
     message: 'Please enter a valid 10-digit phone number.',
   }),
-  message: z.string().min(10, {
-    message: 'Message must be at least 10 characters.',
+  buyingTimeline: z.string({
+    required_error: "Please select when you're planning to buy.",
   }),
 });
 
@@ -51,7 +51,7 @@ async function sendEmail(
       Name: ${data.name}
       Email: ${data.email}
       Telephone: ${data.phone}
-      Message: ${data.message}
+      Buying Timeline: ${data.buyingTimeline.replace(/_/g, ' ')}
     `,
   };
 
